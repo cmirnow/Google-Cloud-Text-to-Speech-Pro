@@ -37,6 +37,7 @@ yarn-debug.log*
 
 /vendor/bundle
 key.json
+/public/output/*
 
 # Ignore application configuration
 /config/application.yml
