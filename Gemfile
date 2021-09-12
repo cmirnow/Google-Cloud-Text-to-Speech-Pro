@@ -30,6 +30,7 @@ gem 'devise'
 gem 'figaro'
 gem 'grpc', '1.31.1'
 gem 'google-cloud-text_to_speech'
+gem 'aws-sdk-s3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
