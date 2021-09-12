@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TtsAdvanced</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+<div id="flash-message">
+   <%= render 'shared/flash' %>
+</div>
+    <%= yield %>
+    <!-- Footer -->
+<footer class="page-footer bg-light fixed-bottom">
+  <div class="footer-copyright text-center py-5 h6 small">© 2019 - 2021 Copyright:
+    <a href="https://masterpro.ws" target="_blank">Masterpro Project</a>
+  </div>
+</footer>
+<!-- Footer -->
+  </body>
+</html>

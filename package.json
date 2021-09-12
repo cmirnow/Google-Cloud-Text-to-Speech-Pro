@@ -1,0 +1,18 @@
+{
+  "name": "tts_advanced",
+  "private": true,
+  "dependencies": {
+    "@popperjs/core": "^2.10.0",
+    "@rails/actioncable": "^6.0.0",
+    "@rails/activestorage": "^6.0.0",
+    "@rails/ujs": "^6.0.0",
+    "@rails/webpacker": "4.3.0",
+    "bootstrap": "^5.1.0",
+    "jquery": "^3.6.0",
+    "turbolinks": "^5.2.0"
+  },
+  "version": "0.1.0",
+  "devDependencies": {
+    "webpack-dev-server": "^4.1.0"
+  }
+}
