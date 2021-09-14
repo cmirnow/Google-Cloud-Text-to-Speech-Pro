@@ -13,3 +13,17 @@
  *= require_tree .
  *= require_self
  */
+
+@font-face { 
+   font-family: 'Shadows Into Light'; 
+   src: font-url('ShadowsIntoLight-Regular.ttf');
+}
+
+h1, h2 {
+font-family:'Shadows Into Light',cursive; 
+color: #777;
+}
+
+a:link {
+  text-decoration: none;
+}

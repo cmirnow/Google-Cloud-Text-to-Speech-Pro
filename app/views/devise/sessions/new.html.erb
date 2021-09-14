@@ -1,7 +1,8 @@
-<h5 class="pb-4">Google Cloud Text to Speech onRails Pro</h5>
-  <div class="card mx-3 mt-n5 shadow-lg" style="border-radius: 10px; border-left:8px #007bff solid; border-right: none; border-top:none; border-bottom:none">
+<span class="badge bg-primary"><%= date %></span>
+  <div class="card mx-3 mt-n5 shadow-lg" style="border-radius: 10px; border-left:8px #ccc solid; border-right: none; border-top:none; border-bottom:none">
     <div class="card-body">
-      <h4 class="card-title mb-3 text-primary text-uppercase">Log in</h4>
+      <h2>Google Cloud Text to Speech onRails Pro</h2>
+      <%= image_pack_tag 'media/images/morning_for_linuxman.jpg', class: "img-fluid float-end" %>
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="row">
           <div class="col">
@@ -21,7 +22,7 @@
             </div>
           </div>
         </div>
-        <%= f.button :submit, "Log in", class: "btn btn-primary" %>
+        <%= f.button :submit, "Log in", class: "btn btn-outline-primary" %>
           <% end %>
           <div class="mt-3" >
           <%= render "devise/shared/links" %>

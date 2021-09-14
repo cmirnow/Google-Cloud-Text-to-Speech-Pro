@@ -13,4 +13,8 @@ module ApplicationHelper
       flash_type.to_s
     end
   end
+
+  def date
+    Date.today.strftime('%d of %B %Y, %A')
+  end
 end
