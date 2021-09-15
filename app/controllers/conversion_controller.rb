@@ -23,7 +23,7 @@ class ConversionController < ApplicationController
   end
 
   def storage(audio_format)
-    @admin = Admin.find_by(id: 1)
+    find_admin
     @admin.files.attach(io: File.open(Rails.root.join('public',
                                                       'output',
                                                       "#{params[:title]}.#{audio_format}")),

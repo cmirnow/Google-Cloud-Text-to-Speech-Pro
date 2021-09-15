@@ -2,7 +2,7 @@ class FileManagementController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @links = Admin.find_by(id: 1).files
+    find_admin
   end
 
   def delete_from_storage

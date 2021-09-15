@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        <% @links.each do |x| %>
+        <% @admin.files.each do |x| %>
             <tr>
                 <td>
         <%= link_to x.filename.to_s, x %>
