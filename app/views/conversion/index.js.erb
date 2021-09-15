@@ -2,4 +2,5 @@
 console.log("This is the create.js.erb file");
 // Render flash message
 $('#template').html("<%= j render 'template' %>");
+$("#form")[0].reset();
 $('#flash-message').html("<%= j render 'shared/flash' %>");
