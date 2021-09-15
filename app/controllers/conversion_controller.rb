@@ -2,12 +2,12 @@ class ConversionController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    unless params[:request].nil?
-      if check.valid?
-        conversion
-      else
-        error_info
-      end
+    return if params[:request].nil?
+
+    if check.valid?
+      conversion
+    else
+      error_info
     end
   end
 
