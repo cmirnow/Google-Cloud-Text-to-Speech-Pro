@@ -18,7 +18,7 @@ class ConversionController < ApplicationController
                                        audio,
                                        params[:codec],
                                        params[:title])
-    storage(audio_format)
+    storage(audio_format) if params[:storage] == '1'
     success_info(audio_format)
   end
 

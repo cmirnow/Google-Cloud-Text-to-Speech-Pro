@@ -14,6 +14,12 @@
 
 <%= simple_form_for :user, html: { method: :post, id: :form }, :remote => true do |f| %>
  <%= f.error_notification %>
+
+<div class="form-check form-switch mb-3">
+  <%= f.check_box :save_to_storage, name: "storage", id: "storage", class: "form-check-input" %>
+  <%= f.label :name, label: "Save this audio file to storage?", required: false %>
+</div>
+
   <%= f.input :title, placeholder: "Enter title of sound file: ", :as => :string, input_html: { :style=> 'width: 70%;', id: "body-field-title", name: "title", include_blank: false, required: true} %>
   <%= f.input :request, placeholder: "Enter your text: ", :as => :text, input_html: { :style=> 'width: 70%;', :rows => 8, id: "body-field", name: "request", include_blank: false, required: true} %>
 
