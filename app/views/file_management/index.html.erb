@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        <% @admin.files.each do |x| %>
+        <% @admin.files.order(created_at: :desc).each do |x| %>
             <tr>
                 <td>
         <%= link_to x.filename.to_s, x %>
