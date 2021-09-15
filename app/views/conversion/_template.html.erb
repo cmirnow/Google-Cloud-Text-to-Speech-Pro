@@ -84,11 +84,8 @@
       <label class="col-sm-3 col-form-label pt-0">Speaking Rate</label>
       <%= speaking_rate %>
 </div>
-
-<div id="btnSubmit" type="submit" class="btn btn-light">
-   <%= f.button :submit, 'Send' %>
+   <%= f.button :submit, 'Submit', class: "btn btn-outline-primary m-3" %>
    <% end %>
-</div>
 </form>
 
 <%= javascript_pack_tag 'counter' %>
