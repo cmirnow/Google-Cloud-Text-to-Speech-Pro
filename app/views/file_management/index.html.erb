@@ -19,7 +19,7 @@
         <tr>
             <th>Audio File</th>
             <th>Time Of Creation</th>
-            <th>Delete</th>
+            <th>Clear</th>
         </tr>
     </thead>
     <tbody>
@@ -32,8 +32,10 @@
         <%= x.created_at.strftime('%d of %B %Y, %A, %T')  %>
                 </td>
                 <td>
-        <%= button_to 'Remove', delete_from_storage_file_management_index_path(:sound_file_id => x.id ),
-                data: { confirm: 'Are you sure?' } %>
+        <%= button_to 'Delete', 
+        delete_from_storage_file_management_index_path(:sound_file_id => x.id ),
+                data: { confirm: 'Are you sure?' }, 
+                class: "btn btn-outline-danger" %>
                 </td>
             </tr>
         <% end %>
