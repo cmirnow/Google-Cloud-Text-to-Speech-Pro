@@ -1,22 +1,41 @@
 <nav class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0">
-      <%= image_pack_tag 'media/images/tts-logo.png', class: "img-fluid float-start" %>
-      <ul class="navbar-nav px-3">
-        <li class="nav-item text-nowrap">
-<% if admin_signed_in? %>
-    <%= link_to 'Log Off', destroy_admin_session_path, :method => :delete, :class => "nav-link" %>
-<% else %>
-    <%= link_to 'Log On', new_admin_session_path %> или <%= link_to 'Sign Up', new_admin_registration_path %>
-<% end %>
-<%= link_to 'Main', conversion_index_path, :class => "nav-link" %>
-        </li>
-      </ul>
+    <%= image_pack_tag 'media/images/tts-logo.png', class: "img-fluid float-start" %>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <% if admin_signed_in? %>
+                    <%= link_to 'Log Off', destroy_admin_session_path, :method => :delete, :class => "nav-link" %>
+                <% else %>
+                    <%= link_to 'Log On', new_admin_session_path %> or
+                    <%= link_to 'Sign Up', new_admin_registration_path %>
+                <% end %>
+                    <%= link_to 'Main', conversion_index_path, :class => "nav-link" %>
+            </li>
+        </ul>
 </nav>
-
 <h1>File Management</h1>
-<p>Loading and deleting sound files.</p>
-
-<% @links.each_with_index do |x| %>
-<%= link_to x.created_at, rails_blob_path(x, disposition: "attachment"), class: 'button'  %>
-<%= button_to 'Remove', delete_from_storage_file_management_index_path(:sound_file_id => x.id ),
+<p>Loading and deleting audio files.</p>
+<table class="table table-striped table-bordered table-condensed table-hover text-center">
+    <thead>
+        <tr>
+            <th>Audio File</th>
+            <th>Time Of Creation</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @links.each do |x| %>
+            <tr>
+                <td>
+        <%= link_to x.filename.to_s, x %>
+                </td>
+                <td>
+        <%= x.created_at.strftime('%d of %B %Y, %A, %T')  %>
+                </td>
+                <td>
+        <%= button_to 'Remove', delete_from_storage_file_management_index_path(:sound_file_id => x.id ),
                 data: { confirm: 'Are you sure?' } %>
-<% end %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
