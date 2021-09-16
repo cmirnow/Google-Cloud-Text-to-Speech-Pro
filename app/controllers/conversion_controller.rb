@@ -24,6 +24,21 @@ class ConversionController < ApplicationController
     success_info(audio_format)
   end
 
+  def translate
+    body = {
+      q: params[:request],
+      target: params[:lang][0..1]
+    }
+
+    translation = Translate.api_request(
+      'language/translate/v2',
+      method: :post,
+      body: URI.encode_www_form(body)
+    )
+
+    translation['data']['translations'].first['translatedText']
+  end
+
   def storage(audio_format)
     find_admin
     @admin.files.attach(
@@ -43,7 +58,15 @@ class ConversionController < ApplicationController
   end
 
   def synthesis_input
-    { params[:text_or_ssml] => params[:request] }
+    { params[:text_or_ssml] => translate_on? }
+  end
+
+  def translate_on?
+    if params[:translate] == '1'
+      translate
+    else
+      params[:request]
+    end
   end
 
   def voice

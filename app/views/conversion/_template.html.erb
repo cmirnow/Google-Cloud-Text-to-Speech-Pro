@@ -15,6 +15,11 @@
 <%= simple_form_for :user, html: { method: :post, id: :form }, :remote => true do |f| %>
  <%= f.error_notification %>
 
+ <div class="form-check form-switch mb-3">
+  <%= f.check_box :translate, name: "translate", id: "translate", class: "form-check-input" %>
+  <%= f.label :name, label: "Google Translate?", required: false %>
+</div>
+
 <div class="form-check form-switch mb-3">
   <%= f.check_box :save_to_storage, name: "storage", id: "storage", class: "form-check-input" %>
   <%= f.label :name, label: "Save this audio file to storage?", required: false %>
@@ -96,4 +101,3 @@
 
 <%= javascript_pack_tag 'counter' %>
 <%= javascript_pack_tag 'chained' %> 
- 
