@@ -12,22 +12,30 @@ class ConversionController < ApplicationController
   end
 
   def conversion
-    audio_format = TtsConversion.index(client,
-                                       synthesis_input,
-                                       voice,
-                                       audio,
-                                       params[:codec],
-                                       params[:title])
+    audio_format = TtsConversion.index(
+      client,
+      synthesis_input,
+      voice,
+      audio,
+      params[:codec],
+      params[:title]
+    )
     storage(audio_format) if params[:storage] == '1'
     success_info(audio_format)
   end
 
   def storage(audio_format)
     find_admin
-    @admin.files.attach(io: File.open(Rails.root.join('public',
-                                                      'output',
-                                                      "#{params[:title]}.#{audio_format}")),
-                        filename: "#{params[:title]}.#{audio_format}")
+    @admin.files.attach(
+      io: File.open(
+        Rails.root.join(
+          'public',
+          'output',
+          "#{params[:title]}.#{audio_format}"
+        )
+      ),
+      filename: "#{params[:title]}.#{audio_format}"
+    )
   end
 
   def client
