@@ -31,7 +31,11 @@ gem 'figaro'
 gem 'grpc', '1.31.1'
 gem 'google-cloud-text_to_speech'
 gem 'aws-sdk-s3'
-gem 'excon'
+# Use Google Cloud Translate API across RapidAPI (REST):
+# gem 'excon'
+
+# Or directly:
+gem "google-cloud-translate-v2"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

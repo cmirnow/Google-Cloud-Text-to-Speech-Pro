@@ -1,6 +1,8 @@
 require_relative 'boot'
 
 require 'rails/all'
+# Use Google Cloud Translate API directly:
+require "google/cloud/translate/v2"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

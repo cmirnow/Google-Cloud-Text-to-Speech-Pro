@@ -25,19 +25,25 @@ class ConversionController < ApplicationController
   end
 
   def translate
-    body = {
-      q: params[:request],
-      target: params[:lang][0..1]
-    }
-
-    translation = Translate.api_request(
-      'language/translate/v2',
-      method: :post,
-      body: URI.encode_www_form(body)
-    )
-
-    translation['data']['translations'].first['translatedText']
+    Translate.api_request(params).to_s
   end
+
+  # Use Google Cloud Translate API across RapidAPI (REST):
+  #
+  #   def translate
+  #     body = {
+  #       q: params[:request],
+  #       target: params[:lang][0..1]
+  #     }
+  #
+  #     translation = Translate.api_request(
+  #       'language/translate/v2',
+  #       method: :post,
+  #       body: URI.encode_www_form(body)
+  #     )
+  #
+  #     translation['data']['translations'].first['translatedText']
+  #   end
 
   def storage(audio_format)
     find_admin
