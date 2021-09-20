@@ -7,10 +7,25 @@ module ApplicationHelper
       'alert-danger'
     when 'warning'
       'alert-warning'
-    when 'notice'
-      'alert-info'
+    when 'alert'
+      'alert-primary'
     else
-      flash_type.to_s
+      'alert-info'
+    end
+  end
+
+  def svg_icon(flash_type)
+    case flash_type
+    when 'success'
+      '#check-circle-fill'
+    when 'error'
+      '#exclamation-triangle-fill'
+    when 'warning'
+      '#exclamation-triangle-fill'
+    when 'alert'
+      '#info-fill'
+    else
+      '#info-fill'
     end
   end
 
