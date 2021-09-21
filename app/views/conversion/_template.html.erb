@@ -12,7 +12,7 @@
       </ul>
 </nav>
 
-<% if ENV['GOOGLE_APPLICATION_CREDENTIALS'].present? && File.exist?(ENV['GOOGLE_APPLICATION_CREDENTIALS']) %>
+<% if credentials_exist? %>
 <%= simple_form_for :user, html: { method: :post, id: :form }, :remote => true do |f| %>
  <%= f.error_notification %>
 
@@ -32,25 +32,7 @@
 <span id="body-count">0 characters</span>
 <div class="chained-selects p-3">
    <select required id="select-1" name="lang">
-      <option value="" selected>Choose language/locale</option>
-      <option value="da-DK">Dansk (Danmark)</option>
-      <option value="de-DE">Deutsch (Deutschland)</option>
-      <option value="en-AU">English (Australia)</option>
-      <option value="en-GB">English (Great Britain)</option>
-      <option value="en-IN">English (India)</option>
-      <option value="en-US">English (United States)</option>
-      <option value="es-ES">Español (España)</option>
-      <option value="fr-CA">Français (Canada)</option>
-      <option value="fr-FR">Français (France)</option>
-      <option value="it-IT">Italiano (Italia)</option>
-      <option value="nl-NL">Nederlands (Nederland)</option>
-      <option value="pl-PL">Polski (Polska)</option>
-      <option value="pt-BR">Português (Brasil)</option>
-      <option value="pt-PT">Português (Portugal)</option>
-      <option value="fi-FI">Suomi (Suomi)</option>
-      <option value="el-GR">Ελληνικά (Ελλάδα)</option>
-      <option value="ru-RU">Русский (Россия)</option>
-      <option value="uk-UA">Українська (Україна)</option>
+  <%= choose_locale %>
    </select>
    <select required id="select-2" disabled>
       <option value="" selected>Choose voice type</option>
