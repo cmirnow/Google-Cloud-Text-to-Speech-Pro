@@ -12,6 +12,7 @@
       </ul>
 </nav>
 
+<% if ENV['GOOGLE_APPLICATION_CREDENTIALS'].present? && File.exist?(ENV['GOOGLE_APPLICATION_CREDENTIALS']) %>
 <%= simple_form_for :user, html: { method: :post, id: :form }, :remote => true do |f| %>
  <%= f.error_notification %>
 
@@ -21,7 +22,7 @@
 </div>
 
 <div class="form-check form-switch mb-3">
-  <%= f.check_box :save_to_storage, name: "storage", id: "storage", class: "form-check-input" %>
+  <%= f.check_box :save_to_storage, name: "storage", id: "storage", class: "form-check-input", disabled: ENV['AWS_ACCESS_KEY_ID'].nil? %>
   <%= f.label :name, label: "Save this audio file to storage?", required: false %>
 </div>
 
@@ -100,6 +101,12 @@
    <%= f.button :submit, 'Submit', class: "btn btn-outline-primary m-3" %>
    <% end %>
 </form>
+
+<% else %>
+<div class="alert alert-danger" role="alert">
+      The service account key was not found, the application cannot continue.
+</div>
+<% end %>
 
 <%= javascript_pack_tag 'counter' %>
 <%= javascript_pack_tag 'chained' %> 
