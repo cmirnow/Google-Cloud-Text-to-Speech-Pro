@@ -1,20 +1,20 @@
 <nav class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0">
-      <%= image_pack_tag 'media/images/tts-logo.png', class: "img-fluid float-start" %>
+  <%= image_pack_tag 'media/images/tts-logo.png', class: "img-fluid float-start" %>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
 <% if admin_signed_in? %>
-    <%= link_to 'Log Off', destroy_admin_session_path, :method => :delete, :class => "nav-link" %>
+  <%= link_to 'Log Off', destroy_admin_session_path, :method => :delete, :class => "nav-link" %>
 <% else %>
-    <%= link_to 'Log On', new_admin_session_path %> или <%= link_to 'Sign Up', new_admin_registration_path %>
+  <%= link_to 'Log On', new_admin_session_path %> или <%= link_to 'Sign Up', new_admin_registration_path %>
 <% end %>
-<%= link_to 'File Management', file_management_index_path, :class => "nav-link" %>
+  <%= link_to 'File Management', file_management_index_path, :class => "nav-link" %>
         </li>
       </ul>
 </nav>
 
 <% if credentials_exist? %>
-<%= simple_form_for :user, html: { method: :post, id: :form }, :remote => true do |f| %>
- <%= f.error_notification %>
+  <%= simple_form_for :user, html: { method: :post, id: :form }, :remote => true do |f| %>
+  <%= f.error_notification %>
 
  <div class="form-check form-switch mb-3">
   <%= f.check_box :translate, name: "translate", id: "translate", class: "form-check-input" %>
@@ -78,17 +78,15 @@
 
 <div class="dropdown input-group">
       <label class="col-sm-3 col-form-label pt-0">Speaking Rate</label>
-      <%= speaking_rate %>
+  <%= speaking_rate %>
 </div>
-   <%= f.button :submit, 'Submit', class: "btn btn-outline-primary m-3" %>
-   <% end %>
+  <%= f.button :submit, 'Submit', class: "btn btn-outline-primary m-3" %>
+  <% end %>
 </form>
 
 <% else %>
-<div class="alert alert-danger" role="alert">
-      The service account key was not found, the application cannot continue.
-</div>
+  <% flash.now[:error] = 'The service account key was not found, the application cannot continue.' %>
 <% end %>
 
-<%= javascript_pack_tag 'counter' %>
-<%= javascript_pack_tag 'chained' %> 
+  <%= javascript_pack_tag 'counter' %>
+  <%= javascript_pack_tag 'chained' %> 

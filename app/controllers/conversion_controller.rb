@@ -99,7 +99,7 @@ class ConversionController < ApplicationController
   end
 
   def error_info
-    flash[:error] = 'Invalid request format'
+    flash.now[:error] = 'Invalid request format'
   end
 
   private
