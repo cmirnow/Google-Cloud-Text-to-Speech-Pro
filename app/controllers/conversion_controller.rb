@@ -82,6 +82,8 @@ class ConversionController < ApplicationController
 
   def audio
     { audio_encoding: params[:codec],
+      effects_profile_id: [params[:audio_device_profile]],
+      pitch: params[:pitch].to_f,
       speaking_rate: params[:speaking_rate].to_f }
   end
 

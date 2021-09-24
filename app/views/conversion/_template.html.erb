@@ -5,7 +5,7 @@
 <% if admin_signed_in? %>
   <%= link_to 'Log Off', destroy_admin_session_path, :method => :delete, :class => "nav-link" %>
 <% else %>
-  <%= link_to 'Log On', new_admin_session_path %> или <%= link_to 'Sign Up', new_admin_registration_path %>
+  <%= link_to 'Log On', new_admin_session_path, :class => "nav-link" %> или <%= link_to 'Sign Up', new_admin_registration_path, :class => "nav-link" %>
 <% end %>
   <%= link_to 'File Management', file_management_index_path, :class => "nav-link" %>
         </li>
@@ -16,18 +16,18 @@
   <%= simple_form_for :user, html: { method: :post, id: :form }, :remote => true do |f| %>
   <%= f.error_notification %>
 
- <div class="form-check form-switch mb-3">
+ <div class="form-check form-check-inline form-switch mb-3">
   <%= f.check_box :translate, name: "translate", id: "translate", class: "form-check-input" %>
   <%= f.label :name, label: "Google Translate?", required: false %>
 </div>
 
-<div class="form-check form-switch mb-3">
+<div class="form-check form-check-inline form-switch mb-3">
   <%= f.check_box :save_to_storage, name: "storage", id: "storage", class: "form-check-input", disabled: ENV['AWS_ACCESS_KEY_ID'].nil? %>
   <%= f.label :name, label: "Save this audio file to storage?", required: false %>
 </div>
 
   <%= f.input :title, placeholder: "Enter title of sound file: ", :as => :string, input_html: { :style=> 'width: 70%;', id: "body-field-title", name: "title", include_blank: false, required: true} %>
-  <%= f.input :request, placeholder: "Enter your text: ", :as => :text, input_html: { :style=> 'width: 70%;', :rows => 8, id: "body-field", name: "request", include_blank: false, required: true} %>
+  <%= f.input :request, placeholder: "Enter your text: ", :as => :text, input_html: { :style=> 'width: 70%;', :rows => 6, id: "body-field", name: "request", include_blank: false, required: true} %>
 
 <span id="body-count">0 characters</span>
 <div class="chained-selects p-3">
@@ -41,6 +41,13 @@
       <option value="" selected>Choose voice name</option>
    </select>
 </div>
+
+<hr style="width:70%;">
+
+   <select class="form-select" name="audio_device_profile" style="width:70%;" required>
+    <option selected disabled value=''>Audio Device Profile</option>
+<%= audio_device_profile %>
+</select>
 
 <hr style="width:70%;">
 
@@ -76,9 +83,13 @@
    </div>
 </div>
 
-<div class="dropdown input-group">
+<div class="dropdown input-group mb-3">
       <label class="col-sm-3 col-form-label pt-0">Speaking Rate</label>
   <%= speaking_rate %>
+</div>
+<div class="dropdown input-group mb-3">
+      <label class="col-sm-3 col-form-label pt-0">Pitch</label>
+  <%= pitch %>
 </div>
   <%= f.button :submit, 'Submit', class: "btn btn-outline-primary m-3" %>
   <% end %>
