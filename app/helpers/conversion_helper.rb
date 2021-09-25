@@ -17,6 +17,7 @@ module ConversionHelper
 
   def audio_device_profile
     options_for_select([
+                         ['Default'],
                          ['Smart watch or wearable', 'wearable-class-device'],
                          %w[Smartphone handset-class-device],
                          ['Headphones or earbuds', 'headphone-class-device'],

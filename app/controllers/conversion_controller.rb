@@ -86,6 +86,7 @@ class ConversionController < ApplicationController
       effects_profile_id: [params[:audio_device_profile]],
       pitch: params[:pitch].to_f,
       speaking_rate: params[:speaking_rate].to_f }
+      .delete_if { |_k, v| v == ['Default'] }
   end
 
   def success_info(audio_format)
