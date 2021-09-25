@@ -4,10 +4,11 @@ class ConversionController < ApplicationController
   def index
     return if params[:request].nil?
 
+    check = Validation.new(form_params)
     if check.valid?
       conversion
     else
-      error_info
+      error_info(check)
     end
   end
 
@@ -20,7 +21,7 @@ class ConversionController < ApplicationController
       params[:codec],
       params[:title]
     )
-    storage(audio_format) if params[:storage] == '1'
+    storage(audio_format) unless params[:storage].to_i.zero?
     success_info(audio_format)
   end
 
@@ -87,10 +88,6 @@ class ConversionController < ApplicationController
       speaking_rate: params[:speaking_rate].to_f }
   end
 
-  def check
-    Validation.new(form_params)
-  end
-
   def success_info(audio_format)
     respond_to do |format|
       format.js do
@@ -100,8 +97,14 @@ class ConversionController < ApplicationController
     end
   end
 
-  def error_info
-    flash.now[:error] = 'Invalid request format'
+  def error_info(x)
+    respond_to do |format|
+      format.js do
+        flash.now[:error] = view_context.pluralize(x.errors.count, 'error').to_s +
+                            ' prohibited this call from being send: ' +
+                            x.errors.full_messages.map { |i| %('#{i}') }.join(',')
+      end
+    end
   end
 
   private
