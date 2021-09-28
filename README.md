@@ -8,7 +8,7 @@ Extended version [Google-Cloud-TTS-Rails](https://github.com/cmirnow/Google-Clou
 
 ![Google Cloud TTS Rails Pro](https://github.com/cmirnow/Google-Cloud-Text-to-Speech-Pro/blob/master/public/images/main.jpg)
 
-**Languages Google Cloud TTS Rails supports:
+Languages Google Cloud TTS Rails supports:
 - Arabic (multi-region)
 - Català (Espanya)
 - Dansk (Danmark)
