@@ -16,7 +16,7 @@
   <%= simple_form_for :user, html: { method: :post, id: :form }, :remote => true do |f| %>
   <%= f.error_notification %>
 
- <div class="form-check form-check-inline form-switch mb-3">
+<div class="form-check form-check-inline form-switch mb-3">
   <%= f.check_box :translate, name: "translate", id: "translate", class: "form-check-input" %>
   <%= f.label :name, label: "Google Translate?", required: false %>
 </div>
@@ -44,56 +44,32 @@
 
 <hr style="width:70%;">
 
-   <select class="form-select" name="audio_device_profile" style="width:70%;" required>
+<select class="form-select" name="audio_device_profile" style="width:70%;" required>
     <option selected disabled value=''>Audio Device Profile</option>
-<%= audio_device_profile %>
+  <%= audio_device_profile %>
 </select>
 
 <hr style="width:70%;">
 
-<div class="row mb-3 input-group">
-    <label class="col-sm-3 col-form-label pt-0">Audio Output Format</label>
-    <div class="col-sm-9">
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="codec" id="MP3" value="MP3" checked="checked">
-        <label class="form-check-label" for="MP3">MP3</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="codec" id="WAV" value="LINEAR16">
-        <label class="form-check-label" for="WAV">WAV</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="codec" id="OGG_OPUS" value="OGG_OPUS">
-        <label class="form-check-label" for="OGG_OPUS">OGG</label>
-      </div>
-   </div>
+  <%= f.input :Audio_output_format, as: :radio_buttons, collection: [['MP3', 'MP3'], ['WAV', 'LINEAR16'], ['OGG', 'OGG_OPUS']], input_html: { name: 'codec' }, wrapper: :horizontal_collection_inline, checked: :MP3, required: false %>
+
+  <%= f.input :Text_or_ssml?, as: :radio_buttons, collection: [['Text', 'text'], ['SSML', 'ssml']], input_html: { name: 'text_or_ssml' }, wrapper: :horizontal_collection_inline, checked: :text, required: false %>
+
+<div class="dropdown">
+  <%= f.label :name, label: "Speaking_rate", class: "col-sm-3 col-form-label pt-0", required: false %>
+  <%= f.select :Speaking_rate, options_for_select(
+      0.50.step(by: 0.125, to: 2.0), selected: '1.0'
+    ) %>
+</div>
+<div class="dropdown">
+  <%= f.label :name, label: "Pitch", class: "col-sm-3 col-form-label pt-0", required: false %>
+  <%= f.select :Pitch, options_for_select(
+      -9.step(by: 1.5, to: 9), selected: '0.0'
+    ) %>
 </div>
 
-<div class="row mb-3 input-group">
-    <label class="col-sm-3 col-form-label pt-0">Text or SSML?</label>
-    <div class="col-sm-9">
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="text_or_ssml" id="text" value="text" checked="checked">
-        <label class="form-check-label" for="MP3">TEXT</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="radio" name="text_or_ssml" id="ssml" value="ssml">
-        <label class="form-check-label" for="WAV">SSML</label>
-      </div>
-   </div>
-</div>
-
-<div class="dropdown input-group mb-3">
-      <label class="col-sm-3 col-form-label pt-0">Speaking Rate</label>
-  <%= speaking_rate %>
-</div>
-<div class="dropdown input-group mb-3">
-      <label class="col-sm-3 col-form-label pt-0">Pitch</label>
-  <%= pitch %>
-</div>
   <%= f.button :submit, 'Submit', class: "btn btn-outline-primary m-3" %>
   <% end %>
-</form>
 
 <% else %>
   <% flash.now[:error] = 'The service account key was not found, the application cannot continue.' %>

@@ -1,16 +1,4 @@
 module ConversionHelper
-  def speaking_rate
-    select_tag 'speaking_rate', options_for_select(
-      0.50.step(by: 0.125, to: 2.0), selected: '1.0'
-    ), { class: 'btn btn-sm btn-light dropdown-toggle' }
-  end
-
-  def pitch
-    select_tag 'pitch', options_for_select(
-      -9.step(by: 1.5, to: 9), selected: '0.0'
-    ), { class: 'btn btn-sm btn-light dropdown-toggle' }
-  end
-
   def credentials_exist?
     t = ENV['GOOGLE_APPLICATION_CREDENTIALS']; t.present? && File.exist?(t)
   end
