@@ -32,6 +32,8 @@ module ConversionHelper
   def choose_locale
     options_for_select([
                          ['Choose language', nil],
+                         ['Arabic, multi-region', 'ar-XA'],
+                         ['Català (Espanya)', 'ca-ES'],
                          ['Dansk (Danmark)', 'da-DK'],
                          ['Deutsch (Deutschland)', 'de-DE'],
                          ['English (Australia)', 'en-AU'],
@@ -42,14 +44,22 @@ module ConversionHelper
                          ['Français (Canada)', 'fr-CA'],
                          ['Français (France)', 'fr-FR'],
                          ['Italiano (Italia)', 'it-IT'],
+                         ['Latviešu (latviešu)', 'lv-LV'],
+                         ['Magyar (Magyarország)', 'hu-HU'],
                          ['Nederlands (Nederland)', 'nl-NL'],
+                         ['Norsk bokmål (Norge)', 'nb-NO'],
                          ['Polski (Polska)', 'pl-PL'],
                          ['Português (Brasil)', 'pt-BR'],
                          ['Português (Portugal)', 'pt-PT'],
+                         ['Română (România)', 'ro-RO'],
                          ['Suomi (Suomi)', 'fi-FI'],
+                         ['Íslenska (Ísland)', 'is-IS'],
+                         ['Čeština (Česká republika)', 'cs-CZ'],
                          ['Ελληνικά (Ελλάδα)', 'el-GR'],
+                         ['Български (България)', 'bg-BG'],
                          ['Русский (Россия)', 'ru-RU'],
-                         ['Українська (Україна)', 'uk-UA']
+                         ['Українська (Україна)', 'uk-UA'],
+                         ['हिन्दी (भारत)', 'hi-IN']
                        ])
   end
 end
