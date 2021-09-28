@@ -3,9 +3,13 @@ a:link {
 } 
 
 .small, h1, h2 {
-font-family:'Shadows Into Light',cursive; 
+  font-family:'Shadows Into Light',cursive; 
 }
 
 h1, h2 {
-color: #777;
+  color: #777;
+}
+
+.w70, hr.w70 {
+  width: 70%;
 }

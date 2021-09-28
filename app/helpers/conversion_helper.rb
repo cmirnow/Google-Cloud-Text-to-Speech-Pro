@@ -3,6 +3,18 @@ module ConversionHelper
     t = ENV['GOOGLE_APPLICATION_CREDENTIALS']; t.present? && File.exist?(t)
   end
 
+  def speaking_rate
+    options_for_select(
+      0.50.step(by: 0.125, to: 2.0), selected: '1.0'
+    )
+  end
+
+  def pitch
+    options_for_select(
+      -9.step(by: 1.5, to: 9), selected: '0.0'
+    )
+  end
+
   def audio_device_profile
     options_for_select([
                          ['Default'],
