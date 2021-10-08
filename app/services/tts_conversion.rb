@@ -3,13 +3,18 @@ class TtsConversion
     response = args[0].synthesize_speech input: args[1],
                                          voice: args[2],
                                          audio_config: args[3]
-    File.open 'public/output/' +
-              args[5] +
-              '.' +
-              audio_format(args[4]).to_s,
+    file_write(*args, response)
+  end
+
+  def self.file_write(*args, response)
+    File.open Rails.root.join(
+      'public',
+      'output',
+      "#{args[5]}.#{audio_format(args[4])}"
+    ),
               'wb' do |file|
       file.write response.audio_content
-      audio_format(args[4]).to_s
+      audio_format(args[4])
     end
   end
 
