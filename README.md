@@ -40,6 +40,6 @@ Languages Google Cloud TTS Rails supports:
 
 ![Google Cloud TTS Rails Pro](https://github.com/cmirnow/Google-Cloud-Text-to-Speech-Pro/blob/master/public/images/file_management.jpg)
 
-Quick Start. [Deploying Google-Cloud-TTS-Rails with Heroku](https://masterpro.ws/deploying-google-cloud-tts-rails-with-heroku) (in English).
+Quick Start. [Deploying Google-Cloud-TTS-Rails with Heroku](https://masterpro.ws/deploying-google-cloud-tts-rails-with-heroku) (in English). If this is a problem, I can do it for you. Take a look at the link!
 
 [Description](https://masterpro.ws/google-cloud-text-to-speech-onrails-pro) (in Russian).
