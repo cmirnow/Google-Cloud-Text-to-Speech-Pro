@@ -13,3 +13,27 @@
  *= require_tree .
  *= require_self
  */
+
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+
+@font-face { 
+   font-family: 'Shadows Into Light'; 
+   src: font-url('ShadowsIntoLight-Regular.ttf') format('woff2 supports variations'),
+        font-url('ShadowsIntoLight-Regular.ttf') format('woff2-variations');
+}
+
+a:link {
+  text-decoration: none;
+} 
+
+.small, h1, h2 {
+  font-family:'Shadows Into Light',cursive; 
+}
+
+h1, h2 {
+  color: #777;
+}
+
+.w70, hr.w70 {
+  width: 70%;
+}

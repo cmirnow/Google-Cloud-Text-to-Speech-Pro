@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0">
-  <%= image_pack_tag 'media/images/tts-logo.png', class: "img-fluid float-start" %>
+  <%= image_tag 'tts-logo.png', class: "img-fluid float-start" %>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
 <% if admin_signed_in? %>
@@ -70,5 +70,5 @@
   <% flash.now[:error] = 'The service account key was not found, the application cannot continue.' %>
 <% end %>
 
-  <%= javascript_pack_tag 'counter' %>
-  <%= javascript_pack_tag 'chained' %> 
+  <%= javascript_include_tag 'counter' %>
+  <%= javascript_include_tag 'chained' %> 

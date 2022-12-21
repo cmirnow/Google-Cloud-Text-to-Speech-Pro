@@ -4,7 +4,7 @@
 
 **This application supports select TEXT or SSML, and three conversion formats: MP3 (MPEG Audio Layer III), WAV (LINEAR16) and OGG (OGG_OPUS).**
 
-Extended version [Google-Cloud-TTS-Rails](https://github.com/cmirnow/Google-Cloud-TTS-Rails) (Ruby on Rails 6, Webpacker, Bootstrap 5, Ajax Flash Messages) allows some improvements: set the title of the sound file, upload and store audio files to Amazon S3, Google Cloud Storage or Microsoft Azure Storage, translate (API Google Translate) text on the fly.
+Extended version [Google-Cloud-TTS-Rails](https://github.com/cmirnow/Google-Cloud-TTS-Rails) (Ruby on Rails 7, Webpack, Bootstrap 5, Ajax Flash Messages) allows some improvements: set the title of the sound file, upload and store audio files to Amazon S3, Google Cloud Storage or Microsoft Azure Storage, translate (API Google Translate) text on the fly.
 
 ![Google Cloud TTS Rails Pro](https://github.com/cmirnow/Google-Cloud-Text-to-Speech-Pro/blob/master/public/images/main.jpg)
 
