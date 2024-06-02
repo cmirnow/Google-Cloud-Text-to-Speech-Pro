@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem "rails", "~> 7.0.0"
+gem "rails", "~> 7.1"
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'simple_form'
 gem 'devise'
 gem 'figaro'
-gem 'grpc', '1.31.1'
+gem 'grpc', '1.64.0'
 gem 'google-cloud-text_to_speech'
 gem 'aws-sdk-s3'
 gem 'jsbundling-rails'
